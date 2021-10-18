@@ -6,12 +6,14 @@ import { Layout, Breadcrumb, Rate, Space, Spin } from "antd";
 const { Content } = Layout;
 
 import axios from "../../core/services/api";
+import { Seo } from "../../components";
 
 export default function Product({ product }) {
   const router = useRouter();
 
   return (
     <Content className="page-product-detail page-wrapper">
+      <Seo title={`Products ${product?.id}`} />
       <Breadcrumb>
         <Breadcrumb.Item>
           <Link href="/">Home</Link>

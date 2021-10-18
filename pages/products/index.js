@@ -5,7 +5,7 @@ import Link from "next/link";
 const { Content } = Layout;
 
 import axios from "../../core/services/api";
-import { ProductItem } from "../../components";
+import { ProductItem, Seo } from "../../components";
 
 export default function Products({ products }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +17,7 @@ export default function Products({ products }) {
 
   return (
     <Content className="page-products page-wrapper">
+      <Seo title="Products" />
       <Breadcrumb>
         <Breadcrumb.Item>
           <Link href="/">Home</Link>

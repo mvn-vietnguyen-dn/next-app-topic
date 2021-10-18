@@ -16,12 +16,6 @@
     font-size: 20px;
     cursor: pointer;
   }
-  .logout-icon {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    color: map-get($colors, white);
-  }
   .favourite-icon {
     position: relative;
     .favourite-count {
