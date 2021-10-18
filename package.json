@@ -4,14 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "env-cmd -f .env.development next build",
+    "build:development": "env-cmd -f .env.development next build",
+    "build:staging": "env-cmd -f .env.staging next build",
+    "build:production": "env-cmd -f .env.production next build",
+    "start": "npm run build:development && next start",
+    "start:development": "npm run build:development && next start",
+    "start:staging": "npm run build:staging && next start",
+    "start:production": "npm run build:production && next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "antd": "^4.16.13",
     "axios": "^0.23.0",
+    "env-cmd": "^10.1.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",

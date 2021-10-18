@@ -6,6 +6,6 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["fakestoreapi.com"],
+    domains: [process.env.API_URL],
   },
 };
