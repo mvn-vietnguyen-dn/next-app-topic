@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button, Rate } from "antd";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+
+import { toggleFavouriteId } from "../../app/favouriteSlice";
 
 export const ProductItem = ({
   id,
@@ -10,6 +13,9 @@ export const ProductItem = ({
   price,
   rating,
 }) => {
+  const dispatch = useDispatch();
+  const favouritedIds = useSelector((state) => state.favourite.favouriteIds);
+
   return (
     <div className="product-item">
       <Link href={`/products/${id}`} passHref>
@@ -28,7 +34,13 @@ export const ProductItem = ({
         <div className="product-content-bottom mt-15">
           <p className="product-price">{price} $</p>
           <div className="product-actions">
-            <Button type="dashed" className="btn-favourite">
+            <Button
+              type="dashed"
+              className={`btn-favourite ${
+                favouritedIds?.includes(id) ? "favourited" : ""
+              }`.trim()}
+              onClick={() => dispatch(toggleFavouriteId(id))}
+            >
               Favourite
             </Button>
             <Button type="primary" className="ml-5">
